@@ -1,0 +1,35 @@
+
+name: 'PR Genie'
+description: 'Review a PR'
+inputs:
+  github_token:
+    description: 'github token'
+    required: true
+  github_pr_id:
+    description: 'github pr id'
+    required: true
+  openai_engine:
+    description: 'openai engine'
+    required: false
+    default: "text-davinci-002"
+  openai_temperature:
+    description: 'openai temperature'
+    required: true
+    default: 0.5
+  openai_max_tokens:
+    description: 'openai max tokens'
+    required: true
+    default: 2048
+  mode:
+    description: 'mode'
+    required: true
+    default: file
+  patch:
+    description: 'patch of the file'
+    required: true
+outputs:
+  review: # id of output
+    description: 'The final code review output'
+runs:
+  using: 'node16'
+  main: 'index.js'
